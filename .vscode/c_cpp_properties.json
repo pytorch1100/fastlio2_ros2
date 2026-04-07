@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/src/**",
+                "/opt/ros/humble/include/**",
+                "/home/wwz/project/ws_livox/install/livox_ros_driver2/include/**"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/gcc-11"
+        }
+    ],
+    "version": 4
+}
