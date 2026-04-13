@@ -5,6 +5,7 @@
             "includePath": [
                 "${default}",
                 "${workspaceFolder}/src/**",
+                "${workspaceFolder}/src/map_builder/**",
                 "/opt/ros/humble/include/**",
                 "/home/wwz/project/ws_livox/install/livox_ros_driver2/include/**",
                 "/home/wwz/project/ws_livox/install/livox_ros_driver2/include/**"

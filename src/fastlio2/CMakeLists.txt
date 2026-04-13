@@ -12,6 +12,15 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(livox_ros_driver2 REQUIRED)
 
+# find lib
+find_package(Eigen3 REQUIRED)
+
+include_directories(
+  ${PROJECT_SOURCE_DIR}/src/map_builder/**
+  #/usr/include/eigen3
+  #${EIGEN3_INCLUDE_DIR}/eigen3
+)
+
 add_executable(lio_node src/lio_node.cpp)
 ament_target_dependencies(lio_node 
   rclcpp
