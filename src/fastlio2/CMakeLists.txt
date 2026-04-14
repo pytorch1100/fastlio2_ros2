@@ -14,14 +14,17 @@ find_package(livox_ros_driver2 REQUIRED)
 
 # find lib
 find_package(Eigen3 REQUIRED)
+find_package(PCL 1.12 REQUIRED)
 
 include_directories(
   ${PROJECT_SOURCE_DIR}/src/map_builder/**
+  ${PROJECT_SOURCE_DIR}/src/**
+  ${PCL_INCLUDE_DIR}
   #/usr/include/eigen3
   #${EIGEN3_INCLUDE_DIR}/eigen3
 )
 
-add_executable(lio_node src/lio_node.cpp)
+add_executable(lio_node src/lio_node.cpp src/utils.cpp)
 ament_target_dependencies(lio_node 
   rclcpp
   std_msgs
@@ -30,6 +33,7 @@ ament_target_dependencies(lio_node
 )
 target_link_libraries(lio_node
   yaml-cpp
+  ${PCL_LIBRARIES}
 )
 
 install(TARGETS lio_node DESTINATION lib/${PROJECT_NAME})

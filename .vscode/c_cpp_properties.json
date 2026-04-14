@@ -8,7 +8,9 @@
                 "${workspaceFolder}/src/map_builder/**",
                 "/opt/ros/humble/include/**",
                 "/home/wwz/project/ws_livox/install/livox_ros_driver2/include/**",
-                "/home/wwz/project/ws_livox/install/livox_ros_driver2/include/**"
+                "/home/wwz/project/ws_livox/install/livox_ros_driver2/include/**",
+                "/usr/include/pcl-1.12",
+                "/usr/include/eigen3"
             ],
             "defines": [],
             "cStandard": "c17",
