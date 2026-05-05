@@ -3,6 +3,9 @@
 
 using V3D = Eigen::Vector3d;
 
+template <typename T>
+using Vec = std::vector<T>;
+
 struct IMUData
 {
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
