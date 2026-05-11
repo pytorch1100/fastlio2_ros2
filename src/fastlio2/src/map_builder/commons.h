@@ -20,6 +20,11 @@ struct Config
     double n_bg = 0.0001;
 
     int imu_init_num = 20;  // 初始化使用，imu足够多时才进行初始化
+
+    bool gravity_align = true;
+
+    M3D r_il = M3D::Identity(); //lidar坐标系到imu坐标系
+    V3D t_il = V3D::Zero();;
 };
 
 struct IMUData

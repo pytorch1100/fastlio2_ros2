@@ -25,6 +25,8 @@ struct Input
 
 struct State
 {
+    static double gravity;
+
     M3D r_wi = M3D::Identity();
     V3D t_wi = V3D::Zero();
     M3D r_il = M3D::Identity();
@@ -33,6 +35,8 @@ struct State
     V3D bg   = V3D::Zero();
     V3D ba   = V3D::Zero();
     V3D g    = V3D(0.0, 0.0, -9.81);
+
+    void initGravityDir(const V3D& gravity_dir) { g = gravity_dir.normalized() * State::gravity; }
 
     void operator+=(const V21D& delta);
 
@@ -50,7 +54,7 @@ public:
 
     void update();
 
-    State& x() { return m_x; }
+    State& get_state_x() { return m_x; }
     M21D& P()   { return m_P; }
 
 private:
