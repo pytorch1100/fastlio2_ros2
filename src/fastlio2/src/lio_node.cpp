@@ -6,10 +6,8 @@
 #include <livox_ros_driver2/msg/custom_msg.hpp>
 
 #include "map_builder/commons.h"
+#include "map_builder/imu_processor.h"
 #include "utils.h"
-
-using PtType = pcl::PointXYZINormal;     // 自定义 点云库中点类型的别名
-using PcdType = pcl::PointCloud<PtType>; // 自定义 点云库中点云类型的别名
 
 // 需求，写一个node，订阅mid360发布的激光雷达点云和IMU数据
 struct NodeConfig
@@ -31,17 +29,6 @@ struct StateData
 
     bool pcd_pushed;
 };
-
-struct SyncPackage
-{
-    // bool pcd_pushed;            // 代表同步包中是否存在点云 0不存在 1存在
-    PcdType::Ptr cloud;   // 使用共享的智能指针
-    Vec<IMUData> imu_vec; // lidar帧对应的imu帧vector
-
-    double cloud_start_time = 0.0; // lidar帧开始时间戳
-    double cloud_end_time = 0.0;   // lidar帧结束时间戳
-
-}; // 记录一帧点云在扫描时间段内，存在的imu帧
 
 class LIONode : public rclcpp::Node // 继承Node类
 {
@@ -83,7 +70,6 @@ public:
 
                 m_state_data.last_imu_timestamp = imu_data.time_;
             });
-
         // m_timer = this->create_wall_timer();
     }
 

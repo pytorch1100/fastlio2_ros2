@@ -24,7 +24,7 @@ include_directories(
   #${EIGEN3_INCLUDE_DIR}/eigen3
 )
 
-add_executable(lio_node src/lio_node.cpp src/utils.cpp)
+add_executable(lio_node src/lio_node.cpp src/utils.cpp src/map_builder/ieskf.cpp src/map_builder/imu_processor.cpp)
 ament_target_dependencies(lio_node 
   rclcpp
   std_msgs
