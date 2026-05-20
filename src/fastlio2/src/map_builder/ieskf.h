@@ -40,6 +40,8 @@ struct State
 
     void operator+=(const V21D& delta);
 
+    V21D operator-(const State& other) const;
+
     // 输出运算符重载函数
     //friend std::ostream& operator<<(std::ostream& os, const State& state);
 };

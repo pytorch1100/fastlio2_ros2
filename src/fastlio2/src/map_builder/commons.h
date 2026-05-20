@@ -39,7 +39,16 @@ struct IMUData
 
 struct Pose
 {
-
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+    double offset;
+    V3D acc;
+    V3D gyro;
+    V3D vel;
+    V3D trans;
+    M3D rot;
+    Pose() = default;
+    Pose(double t, V3D& a, V3D& gy, V3D& v, V3D& t, M3D& r) :
+        offset(t), acc(a), gyro(gy), vel(v), trans(t), rot(r) {}
 };
 
 struct SyncPackage
