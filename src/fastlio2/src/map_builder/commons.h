@@ -53,6 +53,7 @@ struct Pose
 
 struct SyncPackage
 {
+    
     // bool pcd_pushed;            // 代表同步包中是否存在点云 0不存在 1存在
     PcdType::Ptr cloud;   // 使用共享的智能指针
     Vec<IMUData> imu_vec; // lidar帧对应的imu帧vector
